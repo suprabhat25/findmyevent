@@ -107,7 +107,7 @@ class EditEvent extends Component {
             <input
               type="submit"
               value="Update Event"
-              className="btn btn-light btn-block"
+              className="btn btn-light "
             />
           </form>
         </div>

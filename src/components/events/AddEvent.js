@@ -17,19 +17,19 @@ class AddEvent extends Component {
 
     const { name, storyline, release } = this.state;
 
-    // Check For Errors
+    //Adding constraints to the inputs fields.
     if (name === "") {
-      this.setState({ errors: { name: "Name is required" } });
+      this.setState({ errors: { name: "Name field vacant." } });
       return;
     }
 
     if (storyline === "") {
-      this.setState({ errors: { storyline: "Storyline is required" } });
+      this.setState({ errors: { storyline: "Storyline vacant." } });
       return;
     }
 
     if (release === "") {
-      this.setState({ errors: { release: "Release  is required" } });
+      this.setState({ errors: { release: "Release date is required" } });
       return;
     }
 
@@ -40,8 +40,6 @@ class AddEvent extends Component {
     };
 
     this.props.addEvent(newEvent);
-
-    //// SUBMIT EVENT ////
 
     // Clear State
     this.setState({
@@ -61,13 +59,15 @@ class AddEvent extends Component {
 
     return (
       <div className="card mb-3">
-        <div className="card-header">Add Event</div>
+        {" "}
+        {/*We use the .mb-3 utility class to ensure that the input group gets a proper margin bottom. */}
+        <div className="card-header">Add Event</div> {/* Bootstrap used here*/}
         <div className="card-body">
           <form onSubmit={this.onSubmit}>
             <TextInputGroup
               label="Name"
               name="name"
-              placeholder="Enter Name"
+              placeholder="Enter the Name here"
               value={name}
               onChange={this.onChange}
               error={errors.name}
@@ -75,7 +75,7 @@ class AddEvent extends Component {
             <TextInputGroup
               label="Storyline"
               name="storyline"
-              placeholder="Enter Storyline"
+              placeholder="Enter Storyline here"
               value={storyline}
               onChange={this.onChange}
               error={errors.storyline}
@@ -83,7 +83,7 @@ class AddEvent extends Component {
             <TextInputGroup
               label="Release"
               name="release"
-              placeholder="Enter Release"
+              placeholder="Enter Release Date here"
               value={release}
               onChange={this.onChange}
               error={errors.release}
@@ -91,7 +91,7 @@ class AddEvent extends Component {
             <input
               type="submit"
               value="Add Event"
-              className="btn btn-light btn-block"
+              className="btn btn-success btn-block"
             />
           </form>
         </div>

@@ -19,7 +19,7 @@ class App extends Component {
       <Provider store={store}>
         <Router>
           <div className="App">
-            <Header branding="Find My Event" />
+            <Header branding="Find Event" />
             <div className="container">
               <Switch>
                 <Route exact path="/" component={Events} />

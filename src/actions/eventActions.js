@@ -8,25 +8,33 @@ import {
 import axios from "axios";
 
 export const getEvents = () => async (dispatch) => {
-  const res = await axios.get(
-    "https://my-json-server.typicode.com/ShrutiSemwal/eventsdata/events"
-  );
+  try {
+    const res = await axios.get(
+      "https://my-json-server.typicode.com/ShrutiSemwal/eventsdata/events"
+    );
 
-  dispatch({
-    type: GET_EVENTS,
-    payload: res.data,
-  });
+    dispatch({
+      type: GET_EVENTS,
+      payload: res.data,
+    });
+  } catch (error) {
+    alert(error.message);
+  }
 };
 
 export const getEvent = (id) => async (dispatch) => {
-  const res = await axios.get(
-    `https://my-json-server.typicode.com/ShrutiSemwal/eventsdata/events/${id}`
-  );
+  try {
+    const res = await axios.get(
+      `https://my-json-server.typicode.com/ShrutiSemwal/eventsdata/events/${id}`
+    );
 
-  dispatch({
-    type: GET_EVENT,
-    payload: res.data,
-  });
+    dispatch({
+      type: GET_EVENT,
+      payload: res.data,
+    });
+  } catch (error) {
+    alert(error.message);
+  }
 };
 
 export const deleteEvent = (id) => async (dispatch) => {
@@ -47,25 +55,33 @@ export const deleteEvent = (id) => async (dispatch) => {
 };
 
 export const addEvent = (event) => async (dispatch) => {
-  const res = await axios.post(
-    "https://my-json-server.typicode.com/ShrutiSemwal/eventsdata/events",
-    event
-  );
+  try {
+    const res = await axios.post(
+      "https://my-json-server.typicode.com/ShrutiSemwal/eventsdata/events",
+      event
+    );
 
-  dispatch({
-    type: ADD_EVENT,
-    payload: res.data,
-  });
+    dispatch({
+      type: ADD_EVENT,
+      payload: res.data,
+    });
+  } catch (error) {
+    alert(error.message);
+  }
 };
 
 export const updateEvent = (event) => async (dispatch) => {
-  const res = await axios.put(
-    `https://my-json-server.typicode.com/ShrutiSemwal/eventsdata/events/${event.id}`,
-    event
-  );
+  try {
+    const res = await axios.put(
+      `https://my-json-server.typicode.com/ShrutiSemwal/eventsdata/events/${event.id}`,
+      event
+    );
 
-  dispatch({
-    type: UPDATE_EVENT,
-    payload: res.data,
-  });
+    dispatch({
+      type: UPDATE_EVENT,
+      payload: res.data,
+    });
+  } catch (error) {
+    alert(error.message);
+  }
 };
